@@ -1,0 +1,12 @@
+body{
+    color: lightblue;
+}
+
+$text-color: orange;
+
+.content{
+    .title{
+        font-size: 24px;
+        color: $text-color;
+    }
+}
