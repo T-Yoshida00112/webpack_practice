@@ -1,4 +1,5 @@
 const path = require('path');
+const Fiber = require('fibers')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
@@ -6,12 +7,14 @@ const {
 } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
+    devtool: 'source-map',
     entry: {
-        main: './src/javascripts/main.js',
+        main: './src/js/main.js',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'javascripts/main.js',
+        filename: 'js/[name]-[contenthash].js',
     },
     module: {
         rules: [{
@@ -21,6 +24,9 @@ module.exports = {
                     },
                     {
                         loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
                     },
                     {
                         loader: 'sass-loader',
@@ -28,11 +34,29 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpg)/,
+                test: /\.(png|jpg|jpeg)/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'images/[name][ext]',
+                    filename: 'images/[name]-[contenthash][ext]',
                 },
+                use: [
+                    // {
+                    //   loader: 'file-loader',
+                    //   options: {
+                    //     esModule: false,
+                    //     name: 'images/[name].[ext]',
+                    //   },
+                    // },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 65,
+                            },
+                        },
+                    },
+                ],
             },
             {
                 test: /\.pug/,
@@ -51,19 +75,23 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: './stylesheets/main.css',
+            filename: './sass/[name]-[contenthash].css',
         }),
         new HtmlWebpackPlugin({
-            template: './src/templates/index.pug',
+            template: './src/pug/index.pug',
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
-            template: './src/templates/access.pug',
+            template: './src/pug/access.pug',
             filename: 'access.html'
         }),
         new HtmlWebpackPlugin({
-            template: './src/templates/members/taro.pug',
+            template: './src/pug/members/taro.pug',
             filename: 'members/taro.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/pug/parts/button.pug',
+            filename: 'parts/button.html'
         }),
         new CleanWebpackPlugin(),
     ],
