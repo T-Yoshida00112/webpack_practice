@@ -1,0 +1,35 @@
+////////////////* Font *////////////////////
+$base_font: "'Zen Antique', serif";
+
+////////////////* Color *////////////////////
+
+// Color
+$black: #333;
+$grey: #ebebeb;
+$white: #fff;
+$orange: #ec6b17;
+$red: #e9455a;
+$blue: #2ea7c2;
+
+
+//base_color
+$base_color: $orange;
+
+//base_font_color
+$base_font_color: $black;
+
+//base_link_color
+$base_link_color: $black;
+$base_link_color_hoveer: $orange;
+
+//base_btn_color
+$main_btn_color: $red;
+
+$theme-color: #004E3D;
+$bg-base: $base-color;
+$bg-white: #ffffff;
+$bg-footer: $theme-color;
+$text-base: $theme-color;
+$text-white: #ffffff;
+$text-black: #000;
+$alert: #FF4848;

@@ -1,17 +1,10 @@
-@use './valiables.scss';
-@use './layout/common.scss';
-@use './parts/button.scss';
+@charset "UTF-8";
 
+@use './setting';
+@use './destyle';
+@use 'config/fonts';
+@use 'config/valiables';
+@use './mixin';
+@use './base';
+@use './main';
 
-body{
-    color: lightblue;
-}
-
-$text-color: orange;
-
-.content{
-    .title{
-        font-size: 24px;
-        color: $text-color;
-    }
-}
