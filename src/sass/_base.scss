@@ -1,0 +1,19 @@
+@use './config/fonts' as f;
+@use './config/valiables' as v;
+@use './mixin' as m;
+
+/*--------------------------------------------------------
+Base Style
+--------------------------------------------------------*/
+html {
+  transition-duration: 1s;
+  transition-property: opacity;
+}
+
+body{
+  color: v.$base_font_color;
+  width: 100%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-family: v.$base_font;
+}

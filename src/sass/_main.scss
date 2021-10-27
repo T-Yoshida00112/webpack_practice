@@ -1,81 +1,20 @@
-@import './config/valiables';
-
-//共通/////////////////////////////////////
-//マップ型変数breakpointsを定義
-$breakpoints: ( //キー　　値
-    "sm": "screen and (max-width: 576px)",
-    "md": "screen and (max-width: 768px)",
-    "lg": "screen and (max-width: 992px)",
-    "xl": "screen and (max-width: 1200px)"
-) !default;
-//メディアクエリ用のmixinを定義。デフォ値はmd
-@mixin mq($breakpoint: md) {
-
-  //map-get(マップ型変数, キー)で値を取得
-  @media #{map-get($breakpoints, $breakpoint)} {
-      //この中をカスタムできる
-      @content;
-  }
-}
-
-body {
-  line-height: 1.5;
-  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro", "Yu Mincho","Noto Serif JP", "serif";
-  color: $text-base;
-  background-color: $bg-base;
-
-  @include mq(md) {
-      font-size: 15px;
-  }
-
-  @include mq(sm) {
-      font-size: 13px;
-  }
-}
-.en {
-  font-family: 'PT Sans Narrow', sans-serif;
-}
-
-.gothic {
-  font-family: "MS Pゴシック", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: $text-base;
-}
-
-.pc {
-  display: block;
-
-  @include mq(sm) {
-      display: none;
-  }
-}
-
-.sp {
-  display: none;
-
-  @include mq(sm) {
-      display: block;
-  }
-}
+@use './config/fonts' as f;
+@use './config/valiables' as v;
+@use './mixin' as m;
 
 .container {
   width: 80%;
   max-width: 1000px;
   margin: auto;
 
-  @include mq(md) {
+  @include m.mq(md) {
       width: 90%;
   }
 
-  @include mq(sm) {
+  @include m.mq(sm) {
       width: 95%;
   }
 }
-
-
 
 .d-fl {
   display: flex;
