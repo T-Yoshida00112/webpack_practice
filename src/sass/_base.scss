@@ -8,6 +8,13 @@ Base Style
 html {
   transition-duration: 1s;
   transition-property: opacity;
+  font-size: 16px;
+  @include m.mq(md){
+    font-size: 14px;
+  }
+  @include m.mq(sm){
+    font-size: 13px;
+  }
 }
 
 body{
@@ -16,4 +23,27 @@ body{
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   font-family: v.$base_font;
+}
+
+h1{
+  font-size: 2.5rem;
+}
+h2{
+  font-size: 2rem;
+}
+h3{
+  font-size: 1.8rem;
+}
+h4{
+  font-size: 1.6rem;
+}
+h5{
+  font-size: 1.4rem;
+}
+h6{
+  font-size: 1.2rem;
+}
+
+p{
+  font-size: 1rem;
 }

@@ -1,0 +1,131 @@
+@use './config/fonts'as f;
+@use './config/valiables'as v;
+@use './mixin'as m;
+
+.wrapper {
+  overflow: hidden;
+}
+
+
+br{
+  &.sp {
+    display: none;
+    @include m.mq(sm) {
+      display: block;
+    }
+  }
+  &.md {
+    display: none;
+    @include m.mq(md) {
+      display: block;
+    }
+  }
+  &.pc {
+    display: block;
+    @include m.mq(sm) {
+      display: none;
+    }
+  }
+}
+
+.sub-font {
+  font-family: v.$sub_font;
+}
+.ttl-font {
+  font-family: v.$ttl_font;
+}
+
+.container {
+  width: 80%;
+  max-width: 960px;
+  margin: auto;
+
+  @include m.mq(md) {
+    width: 90%;
+  }
+}
+
+.ttl-base {
+  text-align: center;
+  color: v.$main_font_color;
+  font-size: 4.5em;
+  letter-spacing: .45em;
+
+  @include m.mq(md) {
+    font-size: 3.2em;
+  }
+
+  @include m.mq(sm) {
+    font-size: 2.4em;
+    letter-spacing: .35em;
+  }
+}
+
+.ttl-sm {
+  font-family: v.$sub_font;
+  color: v.$main_font_color;
+  font-size: 1.76em;
+  letter-spacing: .175em;
+  line-height: 2.1;
+
+  @include m.mq(md) {
+    font-size: 1.4em;
+
+  }
+
+  @include m.mq(sm) {
+    font-size: 1.0em;
+    letter-spacing: .125em;
+  }
+}
+
+.txt-base, p.txt-base {
+  margin-top: 22px;
+  font-size: 1.1em;
+  letter-spacing: .012em;
+  line-height: 2.4;
+
+  @include m.mq(md) {
+    font-size: 1em;
+  }
+
+  @include m.mq(sm) {
+    font-size: .9em;
+  }
+}
+
+.ta-l {
+  text-align: left;
+}
+
+.ta-c{
+  text-align: center;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.btn{
+  margin: 0 auto;
+  color: v.$white;
+  width: 160px;
+  padding: 5px 20px;
+  text-align: center;
+  display: block;
+  font-size: 1.2em;
+  letter-spacing: .5em;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: v.$main_btn_color;
+  border-radius: 5px;
+  border: 1px solid v.$main_btn_color;
+  &:hover{
+    background-color: v.$main_btn_color_hover;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    color: v.$main_btn_color;
+  }
+}

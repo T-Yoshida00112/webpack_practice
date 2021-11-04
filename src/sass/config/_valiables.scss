@@ -1,35 +1,38 @@
 ////////////////* Font *////////////////////
-$base_font: "'Zen Antique', serif";
+$base_font: sans-serif;
+$sub_font: serif;
+$ttl_font: serif;
 
 ////////////////* Color *////////////////////
 
 // Color
-$black: #333;
-$grey: #ebebeb;
+$black: #727171;
+$grey: #F2F1F0;
 $white: #fff;
 $orange: #ec6b17;
 $red: #e9455a;
 $blue: #2ea7c2;
 
+$main_color: #7E6636;
+$sub_color: #2ea7c2;
 
 //base_color
-$base_color: $orange;
+$base_color: $main_color;
 
 //base_font_color
 $base_font_color: $black;
+$main_font_color: $main_color;
+$dark_font_color: $white;
 
 //base_link_color
 $base_link_color: $black;
-$base_link_color_hoveer: $orange;
+$base_link_color_hover: $orange;
 
 //base_btn_color
 $main_btn_color: $red;
+$sub_btn_color: $blue;
+$main_btn_color_hover: $white;
+$sub_btn_color_hover: $white;
 
-$theme-color: #004E3D;
-$bg-base: $base-color;
-$bg-white: #ffffff;
-$bg-footer: $theme-color;
-$text-base: $theme-color;
-$text-white: #ffffff;
-$text-black: #000;
-$alert: #FF4848;
+$braun_bg_color: $main_color;
+$grey_bg_color: $grey;
